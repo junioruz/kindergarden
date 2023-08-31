@@ -1,0 +1,16 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #202020;
+}
+.main .wrapper {
+  display: flex;
+  height: calc(100% - 52px);
+  background: #202020;
+}
+.main .content {
+  padding: 15px;
+  overflow: auto;
+  width: calc(100% - 239px);
+}

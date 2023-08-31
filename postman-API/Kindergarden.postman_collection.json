@@ -1,0 +1,759 @@
+{
+	"info": {
+		"_postman_id": "af379009-4e96-4625-a468-f01a21a69f67",
+		"name": "Kindergarden",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20109438",
+		"_collection_link": "https://speeding-astronaut-725156.postman.co/workspace/Kindergarden~4469b3dc-5f2f-4d85-89b9-2c1948604b54/collection/20109438-af379009-4e96-4625-a468-f01a21a69f67?action=share&creator=20109438&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"adminbek\",\r\n    \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://95.130.227.52:3010/auth/reg",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"auth",
+								"reg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"adminbek\",\r\n    \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://95.130.227.52:3010/auth/login",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CheckUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUwODcwOTkyYmI4Mzg1MmU2NTMyNCIsImlhdCI6MTY5MDE4MTA1NSwiZXhwIjoxNjkwMjY3NDU1fQ.L_89LHyAf9TvZh6Q94VWyTqYFnzW597evePacMOUmHE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://95.130.227.52:3010/auth/checkuser",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"auth",
+								"checkuser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Image",
+			"item": [
+				{
+					"name": "CretaeAvatar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/user/Desktop/photo_2023-06-28_15-21-36.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://95.130.227.52:3010/image/avatar",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"image",
+								"avatar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateProductImage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/user/Desktop/photo_2023-06-28_15-21-36.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://95.130.227.52:3010/image/product",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"image",
+								"product"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImg",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"value": "images/product/1690193332964-607193561.webp",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://95.130.227.52:3010/image/del",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"image",
+								"del"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "CreateProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUwODcwOTkyYmI4Mzg1MmU2NTMyNCIsImlhdCI6MTY5MDE4MTIzOSwiZXhwIjoxNjkwMjY3NjM5fQ.JgydTSFRqdK8B_q6WWQ62zokJQuyQfZmnZcbY1-p_HA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Sabzi\",\r\n    \"unit\": \"kg\",\r\n    \"img\": \"images/product/1690193332964-607193561.webp\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://95.130.227.52:3010/product",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUwODcwOTkyYmI4Mzg1MmU2NTMyNCIsImlhdCI6MTY5MDE4MTIzOSwiZXhwIjoxNjkwMjY3NjM5fQ.JgydTSFRqdK8B_q6WWQ62zokJQuyQfZmnZcbY1-p_HA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://95.130.227.52:3010/product",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActiveProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUwODcwOTkyYmI4Mzg1MmU2NTMyNCIsImlhdCI6MTY5MDE4MTIzOSwiZXhwIjoxNjkwMjY3NjM5fQ.JgydTSFRqdK8B_q6WWQ62zokJQuyQfZmnZcbY1-p_HA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://95.130.227.52:3010/product/active",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"product",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUwODcwOTkyYmI4Mzg1MmU2NTMyNCIsImlhdCI6MTY5MDE4MTIzOSwiZXhwIjoxNjkwMjY3NjM5fQ.JgydTSFRqdK8B_q6WWQ62zokJQuyQfZmnZcbY1-p_HA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"64be5abdba9c8027e74f2643\",\r\n    \"title\": \"Olma\",\r\n    \"unit\": \"kg\",\r\n    \"img\": \"images/product/1690193332964-607193561.webp\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://95.130.227.52:3010/product",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChangeStatus",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUwODcwOTkyYmI4Mzg1MmU2NTMyNCIsImlhdCI6MTY5MDE4MTIzOSwiZXhwIjoxNjkwMjY3NjM5fQ.JgydTSFRqdK8B_q6WWQ62zokJQuyQfZmnZcbY1-p_HA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://95.130.227.52:3010/product/change/64be5abdba9c8027e74f2643",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"product",
+								"change",
+								"64be5abdba9c8027e74f2643"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUwODcwOTkyYmI4Mzg1MmU2NTMyNCIsImlhdCI6MTY5MDE4MTIzOSwiZXhwIjoxNjkwMjY3NjM5fQ.JgydTSFRqdK8B_q6WWQ62zokJQuyQfZmnZcbY1-p_HA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://95.130.227.52:3010/product/64be5abdba9c8027e74f2643",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"product",
+								"64be5abdba9c8027e74f2643"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUwODcwOTkyYmI4Mzg1MmU2NTMyNCIsImlhdCI6MTY5MDE4MTIzOSwiZXhwIjoxNjkwMjY3NjM5fQ.JgydTSFRqdK8B_q6WWQ62zokJQuyQfZmnZcbY1-p_HA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://95.130.227.52:3010/product/64be5abdba9c8027e74f2643",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"product",
+								"64be5abdba9c8027e74f2643"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PriceProduct",
+			"item": [
+				{
+					"name": "CreatePriceProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUwODcwOTkyYmI4Mzg1MmU2NTMyNCIsImlhdCI6MTY5MDE4MTIzOSwiZXhwIjoxNjkwMjY3NjM5fQ.JgydTSFRqdK8B_q6WWQ62zokJQuyQfZmnZcbY1-p_HA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\": \"64be57075c3a15fb66f12db0\",\r\n    \"price\": 1200\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://95.130.227.52:3010/priceprod",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"priceprod"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUwODcwOTkyYmI4Mzg1MmU2NTMyNCIsImlhdCI6MTY5MDE4MTIzOSwiZXhwIjoxNjkwMjY3NjM5fQ.JgydTSFRqdK8B_q6WWQ62zokJQuyQfZmnZcbY1-p_HA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://95.130.227.52:3010/priceprod",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"priceprod"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActivepriceProiducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUwODcwOTkyYmI4Mzg1MmU2NTMyNCIsImlhdCI6MTY5MDE4MTIzOSwiZXhwIjoxNjkwMjY3NjM5fQ.JgydTSFRqdK8B_q6WWQ62zokJQuyQfZmnZcbY1-p_HA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://95.130.227.52:3010/priceprod/active",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"priceprod",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePriceProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUwODcwOTkyYmI4Mzg1MmU2NTMyNCIsImlhdCI6MTY5MDE4MTIzOSwiZXhwIjoxNjkwMjY3NjM5fQ.JgydTSFRqdK8B_q6WWQ62zokJQuyQfZmnZcbY1-p_HA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"64be6ef65c68513d73eb0e2b\",\r\n    \"product\": \"64be57075c3a15fb66f12db0\",\r\n    \"price\": 91200\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://95.130.227.52:3010/priceprod/",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"priceprod",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChangeStatus",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUwODcwOTkyYmI4Mzg1MmU2NTMyNCIsImlhdCI6MTY5MDE4MTIzOSwiZXhwIjoxNjkwMjY3NjM5fQ.JgydTSFRqdK8B_q6WWQ62zokJQuyQfZmnZcbY1-p_HA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://95.130.227.52:3010/priceprod/change/64be6ef65c68513d73eb0e2b",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"priceprod",
+								"change",
+								"64be6ef65c68513d73eb0e2b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUwODcwOTkyYmI4Mzg1MmU2NTMyNCIsImlhdCI6MTY5MDE4MTIzOSwiZXhwIjoxNjkwMjY3NjM5fQ.JgydTSFRqdK8B_q6WWQ62zokJQuyQfZmnZcbY1-p_HA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://95.130.227.52:3010/priceprod/64be6ef65c68513d73eb0e2b",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"priceprod",
+								"64be6ef65c68513d73eb0e2b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletePriceProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUwODcwOTkyYmI4Mzg1MmU2NTMyNCIsImlhdCI6MTY5MDE4MTIzOSwiZXhwIjoxNjkwMjY3NjM5fQ.JgydTSFRqdK8B_q6WWQ62zokJQuyQfZmnZcbY1-p_HA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://95.130.227.52:3010/priceprod/64be6ef65c68513d73eb0e2b",
+							"protocol": "http",
+							"host": [
+								"95",
+								"130",
+								"227",
+								"52"
+							],
+							"port": "3010",
+							"path": [
+								"priceprod",
+								"64be6ef65c68513d73eb0e2b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Food",
+			"item": []
+		}
+	]
+}

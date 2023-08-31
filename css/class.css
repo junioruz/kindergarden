@@ -1,0 +1,19 @@
+.df {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.mr-1 {
+  margin-right: 10px;
+}

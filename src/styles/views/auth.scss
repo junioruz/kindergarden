@@ -1,0 +1,106 @@
+@import '@/styles/vars/colors.scss';
+
+.auth {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    // background: url('@/styles/imgs/auth-bg-img.png'), lightgray -2385.723px -164.924px / 614.439% 457.666% no-repeat;
+
+    background: $main-bg;
+    box-shadow: 0px 54.600257873535156px 54.600257873535156px 0px rgba(0, 0, 0, 0.25);
+
+    .auth-bg-img {
+        // z-index: -1;
+        position: fixed;
+        top: 58%;
+        left: 29%;
+        width: 15%;
+        height: 10%;
+    }
+    .auth-bg-img-oval {
+        position: fixed;
+        top: 24%;
+        left: 51.5%;
+        width: 28%;
+        height: 28%;
+    }
+
+    .kinder {
+        position: fixed;
+        top: 60px;
+
+        font-size: 60.724px;
+        text-transform: uppercase;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: -1.774px;
+
+        opacity: 0.9000000357627869;
+        background: linear-gradient(115deg, #FFF 0%, #FABEFF 77.14%, #F8ADFF 85.71%, #FFC2AF 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .reg {
+        border-radius: 10.156px;
+        padding: 30px;
+        background: $card-bg;
+        box-shadow: 20.717138290405273px 36.9948844909668px 66.5907974243164px 0px rgba(23, 18, 43, 0.45);
+        backdrop-filter: blur(5.23344px);
+
+        .el-form {
+            width: 350px;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+
+            .el-form-item {
+                .el-form-item__label {
+                    color: $text;
+                    font-size: 16px;
+                }
+
+                &__error {
+                    color: #50E3C2;
+                }
+            }
+
+            .el-button:hover {
+                color: #FFF;
+                background: linear-gradient(221deg, #C548AB 0%, #635BFF 100%);
+                // transition: 0.6s;
+            }
+
+            .el-button--success {
+                color: $title;
+                font-size: 18px;
+                font-weight: 600;
+
+                display: inline-flex;
+                padding: 9.944px 20.984px;
+                align-items: center;
+                gap: 8.492px;
+
+                border-color: #343261;
+                border-radius: 8.492px;
+                background: #343261;
+            }
+        }
+
+        .title {
+            font-weight: 500;
+            font-size: 22px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 15px;
+            color: $title;
+        }
+    }
+}
+
