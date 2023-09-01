@@ -65,3 +65,7 @@
 .el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
   background-color: #2c2b2b;
 }
+
+.el-popper.is-light {
+  border: none;
+}

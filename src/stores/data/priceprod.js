@@ -16,7 +16,7 @@ export const usePriceprodStore = defineStore('priceprod', () => {
         })
         if (res.status == 200) {
             console.log(res.data);
-            priceprods.value = [...res.data.priceprods]
+            priceprods.value = [...res.data.priceProducts]
             priceprodsCount.value = res.data.count
         }
     }

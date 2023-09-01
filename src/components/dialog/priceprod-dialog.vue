@@ -6,25 +6,16 @@
             <el-form ref="priceprodForm" :model="priceprod" :rules="rules" label-position="top"
                 @submit.prevent="add(priceprodForm)">
                 <el-form-item label="Mahsulot nomi" prop="title">
-                    <el-input v-model="priceprod.title" />
+                    <el-input v-model="priceprod.price" />
                 </el-form-item>
                 <el-form-item label="Mahsulot birligi" prop="unit">
-                    <el-select filterable v-model="priceprod.unit" placeholder="Ro'yxatdan tanlang">
+                    <el-select 
+                    filterable 
+                    v-model="priceprod.product" 
+                    placeholder="Ro'yxatdan tanlang">
                         <el-option v-for="item, index in units" :key="index" :label="item" :value="item" />
                     </el-select>
-                </el-form-item>
-                <el-form-item label="Mahsulot rasmi" prop="img">
-                    <el-upload v-model:file-list="priceprod.img" :headers="header.headers" :action="`${url}/image/priceprod`"
-                        list-type="picture-card" :limit="1" :before-upload="handleBefore" :on-preview="hanlePreview">
-                        <el-icon>
-                            <Plus />
-                        </el-icon>
-                    </el-upload>
-
-                    <el-dialog v-model="dialogVisible">
-                        <img w-full :src="dialogImageUrl" alt="Preview Image" />
-                    </el-dialog>
-                </el-form-item>
+                </el-form-item> 
             </el-form>>
 
 
@@ -56,38 +47,26 @@ import { useHelperStore } from '../../stores/helpers/index'
 import { useTokenStore } from '../../stores/user/token'
 import { ElMessage } from 'element-plus';
 
-const tokenStore = useTokenStore()
-const { header } = tokenStore
-
 const helperStore = useHelperStore()
 const { url } = helperStore
 
 const store = usePriceprodStore()
-
-const { priceprods, priceprodCount, units } = storeToRefs(store)
 const { new_priceprod, save_priceprod, get_priceprod } = store
 
 const priceprod = ref({})
 const rules = ref({
-    title: [
+    product: [
         {
             required: true,
-            message: 'Mahsulot nomini kiriting!',
+            message: 'Mahsulotni tanlang',
             trigger: 'blur'
         }
     ],
-    unit: [
+    price: [
         {
             required: true,
-            message: 'Mahsulot birligini kiriting!',
+            message: 'Mahsulot narxini kiriting!',
             trigger: 'change'
-        }
-    ],
-    img: [
-        {
-            required: true,
-            message: 'Mahsulot rasmini yuklang!',
-            trigger: 'blur'
         }
     ]
 })
@@ -131,5 +110,5 @@ watch(editToggle, async () => {
 </script>
 
 <style lang="scss">
-@import '@/styles/components/priceprod-dialog.scss'
+@import '@/styles/components/product-dialog.scss'
 </style>
