@@ -66,7 +66,6 @@ const toLogin = async (regForm) => {
         password: user.value.password,
       });
     } else {
-      console.log("error submit!", fields);
     }
   });
 };

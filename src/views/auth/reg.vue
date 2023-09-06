@@ -86,7 +86,6 @@
             if(res.data == 'no'){
                 status.value = false
             }
-            console.log(res.data);
         }
     }
 
@@ -99,7 +98,6 @@
                     password: user.value.password
                 })
             } else {
-                console.log('error submit!', fields)
             }
         })
     }

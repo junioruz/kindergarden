@@ -132,9 +132,9 @@ const add = async (formEl) => {
     await formEl.validate((valid) => {
         if (valid) {
             if(editToggle){
-                new_product(product.value)
-            } else {
                 save_product(product.value)
+            } else {
+                new_product(product.value)
             }
             product.value = {}
             handleClose()

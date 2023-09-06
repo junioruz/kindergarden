@@ -1,13 +1,24 @@
 <template>
     <div class="headpage">
         <h1 class="headpage__title"> {{ title }}lar</h1>
-        <el-button 
-            type="primary"
-            @click="setToggle(true)"
-            >
-            <el-icon><plus/></el-icon>
-            Yangi {{ title.toLowerCase() }}
-        </el-button>
+        <div>
+            <el-button
+                v-if="excel"
+                @click="getExcel" 
+                type="success">
+                <el-icon>
+                    <document/>
+                </el-icon>
+                Excel
+            </el-button>
+            <el-button 
+                type="primary"
+                @click="setToggle(true)"
+                >
+                <el-icon><plus/></el-icon>
+                Yangi {{ title.toLowerCase() }}
+            </el-button>
+        </div>
     </div>
 </template>
 
@@ -18,8 +29,19 @@ const dialogStore = useDialogStore()
 const { setToggle } = dialogStore
 
     defineProps([
-        'title'
+        'title',
+        'excel'
     ])
+
+    const emit = defineEmits([
+        'excel'
+    ])
+
+
+    const getExcel = () => {
+        emit('excel')
+    }
+
 </script>
 
 <style lang="scss">

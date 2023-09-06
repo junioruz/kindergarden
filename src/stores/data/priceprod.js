@@ -15,7 +15,6 @@ export const usePriceprodStore = defineStore('priceprod', () => {
             url: 'priceprod'
         })
         if (res.status == 200) {
-            console.log(res.data);
             priceprods.value = [...res.data.priceProducts]
             priceprodsCount.value = res.data.count
         }
@@ -103,6 +102,12 @@ export const usePriceprodStore = defineStore('priceprod', () => {
             })
     ]
 
+    const excel_priceprod = async () => {
+        return await api.getAxios({
+            url: 'priceprod/excel'
+        })
+    }
+
 
     return {
         priceprods,
@@ -112,7 +117,8 @@ export const usePriceprodStore = defineStore('priceprod', () => {
         new_priceprod,
         save_priceprod,
         delete_priceprod,
-        status_priceprod
+        status_priceprod,
+        excel_priceprod
     }
 
 })

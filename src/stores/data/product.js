@@ -16,12 +16,21 @@ export const useProductStore = defineStore('product', () => {
             url: 'product'
         })
         if (res.status == 200) {
-            console.log(res.data);
             products.value = [...res.data.products]
             productsCount.value = res.data.count
         }
     }
 
+    // active product
+    const get_all_active_products = async () => {
+        let res = await api.getAxios({
+            url: 'product/active'
+        })
+        if (res.status == 200) {
+            products.value = [...res.data]
+        }
+    }
+    
     // mahsulot qo'shish
     const new_product = async (data) => {
        await api.postAxios({
@@ -114,7 +123,8 @@ export const useProductStore = defineStore('product', () => {
         new_product,
         save_product,
         delete_product,
-        status_product
+        status_product,
+        get_all_active_products
     }
 
 })

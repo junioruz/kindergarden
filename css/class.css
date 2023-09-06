@@ -17,3 +17,10 @@
 .mr-1 {
   margin-right: 10px;
 }
+
+.text-left {
+  text-align: left;
+}
+.text-left.el-input-number .el-input__inner {
+  text-align: left;
+}

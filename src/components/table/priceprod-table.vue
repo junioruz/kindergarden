@@ -3,8 +3,14 @@
         <el-table-column 
             label="№" 
             type="index" />
-        <el-table-column prop="title" label="Mahsulot nomi" />
-        <el-table-column prop="price" label="Narxi" />
+        <el-table-column prop="product.title" label="Mahsulot nomi" />
+        <el-table-column prop="price" label="Narxi">
+            <template #default="scope">
+                <div>
+                    {{ scope.row.price.toLocaleString() || 0 }} so'm
+                 </div>
+            </template>
+        </el-table-column>
         <el-table-column prop="status" label="Holati">
             <template #default="scope">
                 <el-popconfirm effect="dark" width="188px" title="Qaroringiz qat`iymi?"

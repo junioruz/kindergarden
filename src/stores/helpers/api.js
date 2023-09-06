@@ -39,7 +39,6 @@ export const useApiStore = defineStore('api', () => {
         return axios.post(`${url}/${payload.url}`, payload.data, {
             ...header.value,
         }).catch(e => {
-            console.log(e.response.data);
             ElMessage({
                 type: 'error',
                 message: e.response.data
@@ -68,11 +67,27 @@ export const useApiStore = defineStore('api', () => {
         })
     }
 
+    const downloadFile = (link) => {
+        axios({
+            url: `${url}/${link}`,
+            method: 'GET',
+            responseType: 'blob'
+        }).then((response) => {
+            let fileUrl = window.URL.createObjectURL(new Blob([response.data]))
+            let fileLink = document.createElement('a')
+            fileLink.href = fileUrl
+            fileLink.setAttribute('download', link)
+            document.body.appendChild(fileLink)
+            fileLink.click()
+        })
+    }
+
     return {
         getAxios,
         postAxios,
         putAxios,
-        deleteAxios
+        deleteAxios,
+        downloadFile
     }
 
 })
