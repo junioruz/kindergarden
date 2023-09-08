@@ -19,5 +19,12 @@ export const menuLink = [
         path: '/priceprod',
         name: 'priceprod',
         component: () => import('@/views/product/priceprod.vue')
+    },
+    {
+        title: 'Ovqatlar',
+        icon: 'bowl',
+        path: '/food',
+        name: 'food',
+        component: () => import('@/views/food/foods.vue')
     }
 ]
