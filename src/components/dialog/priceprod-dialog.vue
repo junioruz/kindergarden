@@ -106,7 +106,9 @@ const add = async (formEl) => {
             } else {
                 new_priceprod(priceprod.value)
             }
-            priceprod.value = {}
+            priceprod.value = {
+                data: new Date()
+            }
             handleClose()
         } else {
             ElMessage.error('Barcha maydonlarni to\'ldiring')

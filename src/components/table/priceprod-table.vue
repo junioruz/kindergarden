@@ -11,7 +11,8 @@
                  </div>
             </template>
         </el-table-column>
-        <el-table-column prop="status" label="Holati">
+        <el-table-column label="Sana" prop="data" />
+        <el-table-column prop="status" label="Holati" width="80">
             <template #default="scope">
                 <el-popconfirm effect="dark" width="188px" title="Qaroringiz qat`iymi?"
                     @confirm="changeStatus(scope.row._id)">
