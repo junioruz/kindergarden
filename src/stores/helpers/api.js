@@ -18,6 +18,7 @@ export const useApiStore = defineStore('api', () => {
     const getAxios = (payload) => {
         return axios.get(`${url}/${payload.url}`, {
             ...header.value,
+            params: {...payload.search}
         }).catch(e => {
             if (e.response.status == 401) {
                 router.push({ name: 'login' })

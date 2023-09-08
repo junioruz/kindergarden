@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { useApiStore } from '../helpers/api'
 import { ElMessage } from 'element-plus'
+import { convertDate } from '../../func/date'
 
 export const usePriceprodStore = defineStore('priceprod', () => {
     const priceprods = ref([])
@@ -10,12 +11,16 @@ export const usePriceprodStore = defineStore('priceprod', () => {
     const api = useApiStore()
 
     // barcha mahsulotlarni olish
-    const get_all_priceprods = async () => {
+    const get_all_priceprods = async (search) => {
         let res = await api.getAxios({
-            url: 'priceprod'
+            url: 'priceprod',
+            search
         })
         if (res.status == 200) {
-            priceprods.value = [...res.data.priceProducts]
+            priceprods.value = [...res.data.priceProducts.map( price => {
+                price.data = convertDate(price.data) 
+                return price
+            })]
             priceprodsCount.value = res.data.count
         }
     }
