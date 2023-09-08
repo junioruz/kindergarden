@@ -135,7 +135,7 @@ watch(editToggle, async () => {
 @import '@/styles/lib/class.scss';
 
 .el-popper.is-light {
-    border: none !important;
+    border: none;
 }
 
 .el-popper.is-light {
