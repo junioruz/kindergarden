@@ -101,7 +101,7 @@ const add = async (formEl) => {
     if (!formEl) return
     await formEl.validate((valid) => {
         if (valid) {
-            if (editToggle) {
+            if (editToggle.value) {
                 save_priceprod(priceprod.value)
             } else {
                 new_priceprod(priceprod.value)

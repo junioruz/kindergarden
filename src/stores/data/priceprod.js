@@ -8,6 +8,11 @@ export const usePriceprodStore = defineStore('priceprod', () => {
     const priceprods = ref([])
     const priceprodsCount = ref(0)
 
+    const units = {
+        'kg': 'gr',
+        'l': 'ml',
+        'dona': 'ta',
+    }
     const api = useApiStore()
 
     // barcha mahsulotlarni olish
@@ -19,6 +24,7 @@ export const usePriceprodStore = defineStore('priceprod', () => {
         if (res.status == 200) {
             priceprods.value = [...res.data.priceProducts.map( price => {
                 price.data = convertDate(price.data) 
+                price.product.miniunit = units[price.product.unit] || price.product.unit
                 return price
             })]
             priceprodsCount.value = res.data.count

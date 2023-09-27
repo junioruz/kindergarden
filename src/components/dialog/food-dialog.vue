@@ -23,25 +23,34 @@
                         <el-form-item label="Mahsulotni tanlang">
                             <el-select 
                                 filterable 
+                                @change="set_append(item.product, index)"
                                 v-model="item.product" 
                                 placeholder="Ro'yxatdan tanlang">
                                 <el-option v-for="item in priceprods" 
                                     :key="item._id" 
                                     :label="item.product.title" 
-                                    :value="item.product. _id" />
+                                    :value="item.product._id" />
                             </el-select>
                         </el-form-item>
                     </el-col>
                     <el-col :span="12">
                         <el-form-item label="Mahsulot nettosi" >
-                            <el-input-number 
+                            <el-input 
                                 class="text-left" 
-                                :controls="false" 
-                                v-model="item.netto" />
+                                v-maska
+                                @input="calc"
+                                data-maska="######"
+                                v-model="item.netto" >
+                                <template #append>      
+                                    <div>
+                                        {{ item.append }}
+                                    </div>
+                                </template>
+                            </el-input>
                         </el-form-item>
                     </el-col>
                 </el-row>
-
+                <h3 v-if="food.price">Umumiy narh: {{ food.price?.toLocaleString() }} so`m</h3>
                 <!--                 
                 <el-form-item label="Mahsulot" prop="product">
                     <el-select filterable v-model="food.product" placeholder="Ro'yxatdan tanlang">
@@ -138,6 +147,29 @@ const add = async (formEl) => {
         }
     })
 }
+ 
+const set_append = (_id, index) => {
+    let item = priceprods.value.find(item => item.product._id == _id)
+    food.value.products[index].append = item.product.miniunit
+    food.value.products[inndex].append = 
+        item.product.miniunit == item.product.unit 
+        ? item.price 
+        : item.price / 1000
+}
+
+const calc = () => {
+
+    food.value.products = food.value.products.filter( (item,index) => {
+        
+    })
+
+    if(food.value.products.at(-1).product && food.value.products.at(-1).netto > 0){
+        food.value.products.push({
+            product: '',
+            netto: ''
+        })
+    }
+}
 
 const handleClose = () => {
     setEditToggle(false)
@@ -158,6 +190,12 @@ watch(editToggle, async () => {
 
 <style lang="scss" >
 @import '@/styles/lib/class.scss';
+
+.el-input-group__append, .el-input-group__prepend {
+    background: #444;
+    border-radius: 0 5px 5px 0px;
+    box-shadow: none;
+}
 
 .el-popper.is-light {
     border: none;
